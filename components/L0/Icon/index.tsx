@@ -5,6 +5,9 @@ import {
 import {
     usePromisedRecoilValue
 } from '../../../utils'
+import {
+    RecoilState
+} from 'recoil'
 
 interface Properties {
     name: 'magnifying-glass' | 'back' | 'sleep-mode'
@@ -12,12 +15,14 @@ interface Properties {
     className?: string
 }
 
+type AnyObject = {[index: string]: any}
+
 const Icon = ({
     name,
     className = ''
 }: Properties) => {
-    const icon = usePromisedRecoilValue(IconsState, {
-        transform: icons => icons[name]
+    const icon = usePromisedRecoilValue(IconsState as RecoilState<AnyObject>, {
+        transform: icons => (icons as AnyObject)[name]
     })
 
     return (
@@ -28,8 +33,10 @@ const Icon = ({
     )
 }
 
-export default (properties: Properties) => {
+const Component = (properties: Properties) => {
     return (
         <Icon {...properties}/>
     )
 }
+
+export default Component

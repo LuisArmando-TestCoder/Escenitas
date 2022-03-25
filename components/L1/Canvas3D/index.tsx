@@ -3,7 +3,7 @@ import * as Components from '../..'
 import { callScenes3D } from '../../../utils'
 import styles from './styles.module.scss'
 
-export default ({ scenes, className = '', id }: {
+const Component = ({ scenes, className = '', id }: {
     scenes: string[]
     id: string
     className?: string
@@ -19,3 +19,5 @@ export default ({ scenes, className = '', id }: {
         />
     )
 }
+
+export default Component

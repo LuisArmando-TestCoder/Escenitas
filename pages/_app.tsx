@@ -1,4 +1,6 @@
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { Partytown } from '@builder.io/partytown/react'
 import {
     RecoilRoot,
 } from 'recoil'
@@ -8,10 +10,16 @@ import '../styles/main.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
-      <RecoilOutside />
-      <Component {...pageProps} />
-    </RecoilRoot>
+    <>
+      <RecoilRoot>
+        <RecoilOutside />
+        <Head>
+          <title>Escenitas</title>
+          <Partytown debug={true} forward={['dataLayer.push']} />
+        </Head>
+        <Component {...pageProps} />
+      </RecoilRoot>
+    </>
   )
 }
 

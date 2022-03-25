@@ -1,9 +1,12 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-export default ({
+const Component = ({
 	className = '',
 	children
+}: {
+	className?: string
+	children: never | never[]
 }) => {
 	return (
 		<div className={`sliderindexmap ${className} ${styles["sliderindexmap"]}`}>
@@ -11,3 +14,5 @@ export default ({
 		</div>
 	)
 }
+
+export default Component

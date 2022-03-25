@@ -9,7 +9,7 @@ interface Properties {
     reference?: null | Ref<HTMLCanvasElement> 
 }
 
-export default ({
+const Component = ({
     id,
     className = '',
     reference = null
@@ -25,3 +25,5 @@ export default ({
         </div>
     )
 }
+
+export default Component

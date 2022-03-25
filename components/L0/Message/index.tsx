@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-export default ({
+const Component = ({
 	className = '',
 	text = ''
 }) => {
@@ -11,3 +11,5 @@ export default ({
 		</div>
 	)
 }
+
+export default Component

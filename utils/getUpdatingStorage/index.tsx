@@ -5,9 +5,8 @@ export default (
     storageType: 'local' | 'session' = 'local'
 ) => ({
     effects_UNSTABLE: [
-        ({onSet}) => {
-            
-            onSet(value => {
+        ({onSet}: {onSet: Function}) => {
+            onSet((value: any) => {
                 getWindow()[`${storageType}Storage`]?.setItem(
                     valueName,
                     JSON.stringify(value)

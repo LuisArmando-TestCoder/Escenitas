@@ -3,11 +3,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run partytown && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "partytown": "partytown copylib public/~partytown"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.5.1",
     "gsap": "^3.8.0",
     "next": "^12.0.7",
     "react": "17.0.2",
