@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <RecoilOutside />
         <Head>
-          <title>Escenitas</title>
           <Partytown debug={true} forward={['dataLayer.push']} />
         </Head>
         <Component {...pageProps} />
