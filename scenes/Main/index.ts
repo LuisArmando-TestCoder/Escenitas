@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import presetScene, { consulters, types } from "scene-preset";
+import presetScene, { consulters, types, events } from "scene-preset";
 import scene from "./scene";
 
 let sceneEvents: {
@@ -8,13 +8,30 @@ let sceneEvents: {
   onAnimation(canvasState: types.state.CanvasState): void;
 };
 
+function toggleAudio(audio: HTMLAudioElement) {
+  return () => {
+    console.log(audio.paused)
+    audio[audio.paused ? "play" : "pause"]()
+  };
+}
+
 export default (id: string) =>
   presetScene(
     {
       async setup(canvasState: types.state.CanvasState) {
         sceneEvents = await consulters.getSceneLifeCycle(scene);
 
-        sceneEvents?.onSetup(canvasState);
+        const audio = document?.querySelector("audio") as HTMLAudioElement;
+
+        events.onKey("p").end(toggleAudio(audio));
+
+        const audioProperties = consulters.getAudioProperties(audio);
+
+        sceneEvents?.onSetup(
+          {
+            ...canvasState, audioProperties
+          } as unknown as types.state.CanvasState
+        );
       },
       animate(canvasState: types.state.CanvasState) {
         sceneEvents?.onAnimation(canvasState);

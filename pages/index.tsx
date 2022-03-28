@@ -10,8 +10,9 @@ import Canvas3D from "../components/L1/Canvas3D";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
+      <Message text="Presiona P para inciar la canción"></Message>
       <Canvas3D scenes={["Default", "Main"]} id="main" />
-    </div>
+      <audio src="./audios/Gibran 0.mp3" loop={true} />    </div>
   );
 }
 
