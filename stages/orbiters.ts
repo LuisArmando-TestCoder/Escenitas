@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { consulters } from "scene-preset";
 import { Scene, Scenes, SceneExport } from "scene-preset/lib/types/consulters";
 import rainbowMaterial from "../materials/rainbow";
+import getDigit from "../utils/getDigit";
 
 const rotationSpeed = .04;
 
@@ -38,11 +39,13 @@ export default {
       ]);
     },
     onAnimation({ object3D }: SceneExport) {
-      // object3D.rotation.y += rotationSpeed;
+      object3D.rotation.y += rotationSpeed;
 
       object3D.children.forEach((orbit, index) => {
         orbit.rotation.y += rotationSpeed * ((index + 1) / 10);
       });
+
+      object3D.visible = getDigit(Date.now(), 2) % 3 === 2;
     },
   } as unknown as Scene,
 } as Scenes;

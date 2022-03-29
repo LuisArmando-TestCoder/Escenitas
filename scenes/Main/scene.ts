@@ -18,11 +18,13 @@ import nightSkyReflectors from "../../stages/nightSkyReflectors";
 import randomRingAngel from "../../stages/randomRingAngel";
 import orbiters from "../../stages/orbiters";
 import cubeFloor from "../../stages/cubeFloor";
+import dancingLines from "../../stages/dancingLines";
 
 export default {
   ...lightFollower,
   ...nightSkyReflectors,
   ...randomRingAngel,
-  // ...orbiters,
+  ...orbiters,
   ...cubeFloor,
+  ...dancingLines,
 } as Scenes;

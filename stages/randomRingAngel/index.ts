@@ -26,7 +26,7 @@ export default {
                 material: new THREE.MeshStandardMaterial({
                   color: getInterpolatedColor(
                     z / (ringsAmount - 1),
-                    [0, 0, 0, 1],
+                    [255, 255, 0, 1],
                     [255, 255, 255, 1]
                   ),
                 }),

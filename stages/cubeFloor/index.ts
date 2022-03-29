@@ -2,7 +2,8 @@ import * as THREE from "three";
 import { consulters, types } from "scene-preset";
 import { Scene, Scenes, SceneExport } from "scene-preset/lib/types/consulters";
 import getSquareSpiralPositions from "./getSquareSpiralPositions";
-import material from "../../materials/rainbow";
+import material from "../../materials/liquidMetal";
+import getDigit from "../../utils/getDigit";
 
 const rotationSpeed = -.001;
 const stretchScale = 100;
@@ -41,6 +42,10 @@ export default {
       return audioProperties;
     },
     onAnimation: ({ object3D, exported: { frequencies } }: SceneExport) => {
+      object3D.visible = getDigit(Date.now(), 2) % 3 === 1;
+
+      if (!object3D.visible) return;
+
       const maxFrecuency = frequencies?.reduce((a: number, b: number) => {
         return a > b ? a : b;
       });
