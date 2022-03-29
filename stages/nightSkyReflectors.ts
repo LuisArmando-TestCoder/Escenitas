@@ -97,20 +97,20 @@ export default {
       });
     },
   } as unknown as Scene,
-  floor: {
-    properties: {
-      position: {
-        y: -3,
-      },
-    },
-    object: () =>
-      new THREE.Mesh(
-        new THREE.CylinderGeometry(45, 45, 1, 100),
-        new THREE.MeshPhongMaterial({
-          color: "#000",
-          specular: "#fff",
-          shininess: 30,
-        })
-      ),
-  } as unknown as Scene,
+  // floor: {
+  //   properties: {
+  //     position: {
+  //       y: -5,
+  //     },
+  //   },
+  //   object: () =>
+  //     new THREE.Mesh(
+  //       new THREE.CylinderGeometry(45, 45, 1, 100),
+  //       new THREE.MeshPhongMaterial({
+  //         color: "#000",
+  //         specular: "#fff",
+  //         shininess: 30,
+  //       })
+  //     ),
+  // } as unknown as Scene,
 } as Scenes;
