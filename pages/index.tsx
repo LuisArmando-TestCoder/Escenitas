@@ -11,8 +11,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
       {/* <Message text="Presiona P para inciar la canción"></Message> */}
-      <Canvas3D scenes={["Default", "Main"]} id="main" />
-      <audio src="./audios/experimento 2.1.mp3" loop={true} />    </div>
+      {/* <Canvas3D scenes={["Default", "Main"]} id="main" /> */}
+      <audio src="./audios/Squirrel and Biscuits.mp3" loop={true} />    </div>
   );
 }
 

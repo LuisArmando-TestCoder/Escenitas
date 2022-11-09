@@ -46,9 +46,13 @@ export default {
       return line;
     },
     onSetup(
-      _: any,
+      { object3D }: SceneExport,
       { audioProperties }: { audioProperties: types.utils.AudioProperties }
     ) {
+      const mesh = object3D as THREE.Mesh;
+
+      mesh.geometry.attributes.position.needsUpdate = true;
+
       return audioProperties;
     },
     onAnimation({ object3D, exported: { frequencies } }: SceneExport) {
@@ -60,7 +64,6 @@ export default {
 
       const mesh = object3D as THREE.Mesh;
 
-      mesh.geometry.attributes.position.needsUpdate = true;
 
       const {
         geometry: {
@@ -73,9 +76,9 @@ export default {
       for (let index = 0; index < points.length; index++) {
         const waveDistance = getWaveDistance(Date.now() / 1000, index);
 
-        points[index++] = Math.sin(getStep(index)) * waveDistance;
-        points[index++] = Math.cos(getStep(index)) * waveDistance;
-        points[index++] = Math.sin(getStep(index)) * waveDistance;
+        // points[index++] = Math.sin(getStep(index)) * waveDistance;
+        // points[index++] = Math.cos(getStep(index)) * waveDistance;
+        // points[index++] = Math.sin(getStep(index)) * waveDistance;
       }
     },
   } as unknown as Scene,
