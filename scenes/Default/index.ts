@@ -63,7 +63,7 @@ export default (id: string) =>
             "SimpleFloor",
             "SimpleCube",
             "SimpleSphere",
-            "SimpleLightSet",
+            // "SimpleLightSet",
           ],
         });
       },

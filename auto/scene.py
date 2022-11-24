@@ -45,7 +45,7 @@ executeConditionalPath(
     f"{folderPath}/scene.ts",
     lambda path: createFile(
         path,
-        "import Victor from \"Victor\";\n" +
+        "import Victor from \"victor\";\n" +
         "import * as THREE from \"three\";\n" +
         "import { events, consulters } from \"scene-preset\";\n" +
         "import { CanvasState } from \"scene-preset/lib/types/state\";\n" +
