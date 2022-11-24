@@ -47,7 +47,7 @@ export default {
     },
     onSetup(
       { object3D }: SceneExport,
-      { audioProperties }: { audioProperties: types.utils.AudioProperties }
+      { audioProperties }: { audioProperties: { [ index: string ]: any } }
     ) {
       const mesh = object3D as THREE.Mesh;
 
