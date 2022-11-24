@@ -74,7 +74,7 @@ executeConditionalPath(
         "import Head from 'next/head'\n" +
         "import * as Components from '../components'\n" +
         "\n" +
-        "export default () => {\n" +
+        f"function {sceneName}() " + "{\n" +
         "    return (\n" +
         "        <div>\n" +
         "            <Head>\n" +
@@ -91,7 +91,8 @@ executeConditionalPath(
         "            />\n" +
         "        </div>\n" +
         "    )\n" +
-        "}\n"
+        "}\n\n" +
+        f"export default {sceneName};"
     )
 )
 
