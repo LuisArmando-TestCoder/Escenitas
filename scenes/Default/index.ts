@@ -10,7 +10,7 @@ import starfieldMaterial from "../../materials/starfield";
 import worleyNoiseWatersMaterial from "../../materials/worleyNoiseWaters";
 
 actions.addSceneSetupIntrude(
-  ({ presetConfiguration, camera }: types.state.CanvasState) => {
+  ({ presetConfiguration, camera }: { [index: string]: any }) => {
     presetConfiguration.ambient.color = 0x000000;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.x *= 5;
     presetConfiguration.camera.cameraVectorsState.top.acceleration.z *= 5;
@@ -23,7 +23,7 @@ actions.addSceneSetupIntrude(
 export default (id: string) =>
   presetScene(
     {
-      async setup(canvasState: types.state.CanvasState) {
+      async setup(canvasState: { [index: string]: any }) {
         [
           rainbowMaterial,
           wavyMaterial,
@@ -56,7 +56,7 @@ export default (id: string) =>
           }
         });
       },
-      animate(canvasState: types.state.CanvasState) {
+      animate(canvasState: { [index: string]: any }) {
         actions.blacklistObjects({
           scene: canvasState.scene as THREE.Scene,
           blacklist: [

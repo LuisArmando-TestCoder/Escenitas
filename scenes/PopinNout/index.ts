@@ -4,14 +4,14 @@ import scene from "./scene";
 
 let sceneEvents: {
   sceneGroup: THREE.Group;
-  onSetup(canvasState: types.state.CanvasState): void;
-  onAnimation(canvasState: types.state.CanvasState): void;
+  onSetup(canvasState: { [index: string]: any }): void;
+  onAnimation(canvasState: { [index: string]: any }): void;
 };
 
 export default (id: string) =>
   presetScene(
     {
-      async setup(canvasState: types.state.CanvasState) {
+      async setup(canvasState: { [index: string]: any }) {
         sceneEvents = await consulters.getSceneLifeCycle(scene);
 
         sceneEvents?.onSetup(canvasState);
@@ -27,7 +27,7 @@ export default (id: string) =>
         //   "setFirstPersonZoom",
         // ]);
       },
-      animate(canvasState: types.state.CanvasState) {
+      animate(canvasState: { [index: string]: any }) {
         sceneEvents?.onAnimation(canvasState);
       },
     },

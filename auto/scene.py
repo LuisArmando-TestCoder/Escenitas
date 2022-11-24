@@ -20,19 +20,19 @@ executeConditionalPath(
         "\n" +
         "let sceneEvents: {\n" +
         "  sceneGroup: THREE.Group;\n" +
-        "  onSetup(canvasState: types.state.CanvasState): void;\n" +
-        "  onAnimation(canvasState: types.state.CanvasState): void;\n" +
+        "  onSetup(canvasState: { [index: string]: any }): void;\n" +
+        "  onAnimation(canvasState: { [index: string]: any }): void;\n" +
         "};\n" +
         "\n" +
         "export default (id: string) =>\n" +
         "  presetScene(\n" +
         "    {\n" +
-        "      async setup(canvasState: types.state.CanvasState) {\n" +
+        "      async setup(canvasState: { [index: string]: any }) {\n" +
         "        sceneEvents = await consulters.getSceneLifeCycle(scene);\n" +
         "\n" +
         "        sceneEvents?.onSetup(canvasState);\n" +
         "      },\n" +
-        "      animate(canvasState: types.state.CanvasState) {\n" +
+        "      animate(canvasState: { [index: string]: any }) {\n" +
         "        sceneEvents?.onAnimation(canvasState);\n" +
         "      },\n" +
         "    },\n" +

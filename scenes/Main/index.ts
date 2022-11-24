@@ -4,8 +4,8 @@ import scene from "./scene";
 
 let sceneEvents: {
   sceneGroup: THREE.Group;
-  onSetup(canvasState: types.state.CanvasState): void;
-  onAnimation(canvasState: types.state.CanvasState): void;
+  onSetup(canvasState: { [index: string]: any }): void;
+  onAnimation(canvasState: { [index: string]: any }): void;
 };
 
 function toggleAudio(audio: HTMLAudioElement) {
@@ -18,7 +18,7 @@ function toggleAudio(audio: HTMLAudioElement) {
 export default (id: string) =>
   presetScene(
     {
-      async setup(canvasState: types.state.CanvasState) {
+      async setup(canvasState: { [index: string]: any }) {
         sceneEvents = await consulters.getSceneLifeCycle(scene);
 
         const audio = document?.querySelector("audio") as HTMLAudioElement;
@@ -30,10 +30,10 @@ export default (id: string) =>
         sceneEvents?.onSetup(
           {
             ...canvasState, audioProperties
-          } as unknown as types.state.CanvasState
+          } as unknown as { [index: string]: any }
         );
       },
-      animate(canvasState: types.state.CanvasState) {
+      animate(canvasState: { [index: string]: any }) {
         sceneEvents?.onAnimation(canvasState);
       },
     },
