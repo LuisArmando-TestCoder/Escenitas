@@ -1,4 +1,4 @@
-import Victor from "Victor";
+import Victor from "victor";
 import * as THREE from "three";
 import { events, consulters } from "scene-preset";
 import { CanvasState } from "scene-preset/lib/types/state";

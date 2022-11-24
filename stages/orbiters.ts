@@ -18,7 +18,7 @@ export default {
           dimensions: [orbitersAmount],
           material: rainbowMaterial,
           geometry: new THREE.SphereBufferGeometry(orbiterSize, 32, 12),
-          getIntersectionMesh([x], mesh) {
+          getIntersectionMesh([x]: number[], mesh: THREE.Mesh) {
             const group = new THREE.Group();
             const getRandomStep = () => Math.random() * Math.PI * 2;
             const randomStep = getRandomStep();

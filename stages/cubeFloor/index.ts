@@ -22,7 +22,7 @@ export default {
         {
           geometry: new THREE.BoxBufferGeometry(0.1, 0.01, 0.1),
           material: material,
-          getIntersectionMesh([index], mesh) {
+          getIntersectionMesh([index]: number[], mesh: THREE.Mesh) {
             mesh.position.set(
               squareSpiralPositions[index].x * space,
               0,
@@ -37,7 +37,7 @@ export default {
     },
     onSetup(
       _: any,
-      { audioProperties }: { audioProperties: types.utils.AudioProperties }
+      { audioProperties }: { audioProperties: { [index: string]: any } }
     ) {
       return audioProperties;
     },

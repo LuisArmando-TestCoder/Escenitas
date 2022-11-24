@@ -50,7 +50,7 @@ export default {
       return consulters.getProceduralGroup([
         {
           dimensions: [length],
-          getIntersectionMesh([index]) {
+          getIntersectionMesh([index]: number[]) {
             const [lightOrb] = LightOrbs([new THREE.Vector3(0, 0, 0)]);
             const ring = new THREE.Mesh(
               new THREE.RingBufferGeometry(0.5, 1, 73),

@@ -19,7 +19,7 @@ export default {
       return consulters.getProceduralGroup([
         {
           dimensions: [ringsAmount],
-          getIntersectionMesh([z]) {
+          getIntersectionMesh([z]: number[]) {
             const size = initialSize * (z + 1);
             return consulters.getProceduralGroup([
               {
@@ -32,7 +32,7 @@ export default {
                 }),
                 geometry: new THREE.BoxBufferGeometry(size, size, size),
                 dimensions: [heightLayers, circleAmount],
-                getIntersectionMesh([y, x], mesh) {
+                getIntersectionMesh([y, x]: number[], mesh: THREE.Mesh) {
                   const xStep = (x / circleAmount) * Math.PI * 2;
                   const yDisplacement = Math.round(y / 2) * Math.sign((y % 2) - .5);
                   const distance =
@@ -61,7 +61,7 @@ export default {
       {
         audioProperties,
       }: {
-        audioProperties: types.utils.AudioProperties;
+        audioProperties: { [index: string]: any };
       }
     ) {
       return audioProperties;
