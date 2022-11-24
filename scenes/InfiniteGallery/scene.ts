@@ -59,7 +59,7 @@ export default {
         const {length} = hallway.children
 
         hallway.children.forEach(({position}) => {
-            position.z = ((position.z - .1) % ((length / 2) * (scale + space)))
+            position.z = ((position.z + length / 2 - .1) % ((length / 2) * (scale + space) * 2)) - length / 2
         })
     },
   } as unknown as Scene,
