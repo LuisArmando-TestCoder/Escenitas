@@ -5,7 +5,7 @@ export default function ({ position }: { position: THREE.Vector3 }) {
   const cubesCube = consulters.getProceduralGroup([
     {
       geometry: new THREE.BoxBufferGeometry(0.5, 0.5, 0.5) as any,
-      getIntersectionMesh(indices, mesh) {
+      getIntersectionMesh(indices: number[], mesh: THREE.Mesh) {
         mesh.position.set(indices[0], indices[1], indices[2]);
 
         return mesh;
